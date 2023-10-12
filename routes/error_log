@@ -1,0 +1,136 @@
+[16-Aug-2023 06:20:40 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/economic/apis/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/channels.php on line 16
+[16-Aug-2023 06:20:40 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/web.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/web.php on line 16
+[16-Aug-2023 06:30:36 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/api.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/api.php on line 20
+[16-Aug-2023 06:30:36 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/economic/apis/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/console.php on line 17
+[16-Aug-2023 06:30:37 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/web.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/web.php on line 16
+[16-Aug-2023 06:30:37 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/economic/apis/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/channels.php on line 16
+[16-Aug-2023 08:12:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/economic/apis/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/channels.php on line 16
+[16-Aug-2023 08:12:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/economic/apis/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/channels.php on line 16
+[16-Aug-2023 08:12:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/economic/apis/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/channels.php on line 16
+[16-Aug-2023 08:12:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/economic/apis/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/channels.php on line 16
+[16-Aug-2023 08:12:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/web.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/web.php on line 16
+[16-Aug-2023 08:12:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/web.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/web.php on line 16
+[16-Aug-2023 08:12:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/web.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/web.php on line 16
+[16-Aug-2023 08:12:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/economic/apis/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/channels.php on line 16
+[16-Aug-2023 08:12:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/api.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/api.php on line 20
+[16-Aug-2023 08:12:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/api.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/api.php on line 20
+[16-Aug-2023 08:12:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/web.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/web.php on line 16
+[16-Aug-2023 08:12:30 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/api.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/api.php on line 20
+[16-Aug-2023 08:12:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/web.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/web.php on line 16
+[16-Aug-2023 08:12:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/economic/apis/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/console.php on line 17
+[16-Aug-2023 08:12:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/economic/apis/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/console.php on line 17
+[16-Aug-2023 08:12:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/web.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/web.php on line 16
+[16-Aug-2023 08:12:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/economic/apis/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/console.php on line 17
+[16-Aug-2023 08:12:32 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/web.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/web.php on line 16
+[16-Aug-2023 08:12:32 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/economic/apis/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/console.php on line 17
+[16-Aug-2023 08:12:32 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/api.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/api.php on line 20
+[16-Aug-2023 08:12:33 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/economic/apis/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/console.php on line 17
+[16-Aug-2023 08:12:35 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/economic/apis/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/console.php on line 17
+[16-Aug-2023 08:12:36 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/economic/apis/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/console.php on line 17
+[16-Aug-2023 08:12:38 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/economic/apis/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/channels.php on line 16
+[16-Aug-2023 08:12:38 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/economic/apis/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/channels.php on line 16
+[16-Aug-2023 08:12:41 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/api.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/api.php on line 20
+[16-Aug-2023 08:12:49 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/api.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/api.php on line 20
+[16-Aug-2023 08:12:56 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/economic/apis/routes/api.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/routes/api.php on line 20

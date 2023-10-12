@@ -1,0 +1,52 @@
+[16-Aug-2023 06:30:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/economic/apis/config/cache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/cache.php on line 18
+[16-Aug-2023 06:30:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/economic/apis/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/database.php on line 18
+[16-Aug-2023 06:30:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/economic/apis/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/hashing.php on line 32
+[16-Aug-2023 06:30:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/economic/apis/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/mail.php on line 16
+[16-Aug-2023 06:30:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/economic/apis/config/sanctum.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/sanctum.php on line 16
+[16-Aug-2023 06:30:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/economic/apis/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/session.php on line 21
+[16-Aug-2023 06:30:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/economic/apis/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/app.php on line 16
+[16-Aug-2023 06:30:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/economic/apis/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/broadcasting.php on line 18
+[16-Aug-2023 06:30:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/economic/apis/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/filesystems.php on line 16
+[16-Aug-2023 06:30:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/economic/apis/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/logging.php on line 20
+[16-Aug-2023 06:30:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/economic/apis/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/services.php on line 18
+[16-Aug-2023 06:30:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/economic/apis/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/queue.php on line 16
+[16-Aug-2023 06:30:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/economic/apis/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/config/view.php on line 17

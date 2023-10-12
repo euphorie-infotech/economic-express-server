@@ -1,0 +1,28 @@
+[16-Aug-2023 06:30:38 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Testing\TestCase" not found in /home/economic/apis/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/tests/TestCase.php on line 7
+[16-Aug-2023 08:12:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Testing\TestCase" not found in /home/economic/apis/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/tests/TestCase.php on line 7
+[16-Aug-2023 08:12:32 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Testing\TestCase" not found in /home/economic/apis/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/tests/TestCase.php on line 7
+[16-Aug-2023 08:12:33 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Testing\TestCase" not found in /home/economic/apis/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/tests/TestCase.php on line 7
+[16-Aug-2023 08:12:33 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Testing\TestCase" not found in /home/economic/apis/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/tests/TestCase.php on line 7
+[16-Aug-2023 08:12:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Testing\TestCase" not found in /home/economic/apis/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/tests/TestCase.php on line 7
+[16-Aug-2023 08:12:59 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Testing\TestCase" not found in /home/economic/apis/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/economic/apis/tests/TestCase.php on line 7
