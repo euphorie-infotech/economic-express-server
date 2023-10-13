@@ -12,8 +12,8 @@ class PublicController extends Controller
     {
         try {
             $data = News::join('categories', 'categories.id', '=', 'news.category_id')
-                ->join('news_tags', 'news_tags.newsId', '=', 'news.Id')
-                ->join('tags', 'tags.id', '=', 'news_tags.tagId')
+                ->join('news_tags', 'news_tags.news_id', '=', 'news.Id')
+                ->join('tags', 'tags.id', '=', 'news_tags.tag_id')
                 ->where('is_published', 1)
                 ->where('news.status', 1)
                 ->orderBy('category_id', 'asc')
@@ -38,9 +38,9 @@ class PublicController extends Controller
     public function getActiveNewsByCategory($name)
     {
         try {
-            $data = News::join('categories', 'categories.id', '=', 'news.categoryId')
-                ->join('news_tags', 'news_tags.newsId', '=', 'news.Id')
-                ->join('tags', 'tags.id', '=', 'news_tags.tagId')
+            $data = News::join('categories', 'categories.id', '=', 'news.category_id')
+                ->join('news_tags', 'news_tags.news_id', '=', 'news.Id')
+                ->join('tags', 'tags.id', '=', 'news_tags.tag_id')
                 ->where('isPublished', 1)
                 ->where('news.status', 1)
                 ->where('categories.name_en', $name)
@@ -65,9 +65,9 @@ class PublicController extends Controller
     public function getActiveNewsByTag($name)
     {
         try {
-            $data = News::join('tags', 'tags.id', '=', 'news.categoryId')
-                ->join('news_tags', 'news_tags.newsId', '=', 'news.Id')
-                ->join('tags', 'tags.id', '=', 'news_tags.tagId')
+            $data = News::join('tags', 'tags.id', '=', 'news.category_id')
+                ->join('news_tags', 'news_tags.news_id', '=', 'news.Id')
+                ->join('tags', 'tags.id', '=', 'news_tags.tag_id')
                 ->where('isPublished', 1)
                 ->where('news.status', 1)
                 ->where('tags.name_en', $name)
@@ -92,9 +92,9 @@ class PublicController extends Controller
     public function getNewsById($name, $id)
     {
         try {
-            $data = News::join('categories', 'categories.id', '=', 'news.categoryId')
-                ->join('news_tags', 'news_tags.newsId', '=', 'news.Id')
-                ->join('tags', 'tags.id', '=', 'news_tags.tagId')
+            $data = News::join('categories', 'categories.id', '=', 'news.category_id')
+                ->join('news_tags', 'news_tags.news_id', '=', 'news.Id')
+                ->join('tags', 'tags.id', '=', 'news_tags.tag_id')
                 ->where('categories.name_en', $name)
                 ->where('unique_id', $id)
                 ->orderBy('isFeatured', 'asc')
