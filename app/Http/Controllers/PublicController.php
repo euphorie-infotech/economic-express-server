@@ -41,10 +41,10 @@ class PublicController extends Controller
             $data = News::join('categories', 'categories.id', '=', 'news.category_id')
                 ->join('news_tags', 'news_tags.news_id', '=', 'news.Id')
                 ->join('tags', 'tags.id', '=', 'news_tags.tag_id')
-                ->where('isPublished', 1)
+                ->where('is_published', 1)
                 ->where('news.status', 1)
                 ->where('categories.name_en', $name)
-                ->orderBy('isFeatured', 'asc')
+                ->orderBy('is_featured', 'asc')
                 ->orderBy('id', 'desc')
                 ->select('news.*', 'categories.name_en as catname_en', 'categories.name_bn as catname_bn', 'tags.name_en as tagname_en', 'tags.name_bn as tagname_bn')
                 ->get();
@@ -68,10 +68,10 @@ class PublicController extends Controller
             $data = News::join('tags', 'tags.id', '=', 'news.category_id')
                 ->join('news_tags', 'news_tags.news_id', '=', 'news.Id')
                 ->join('tags', 'tags.id', '=', 'news_tags.tag_id')
-                ->where('isPublished', 1)
+                ->where('is_published', 1)
                 ->where('news.status', 1)
                 ->where('tags.name_en', $name)
-                ->orderBy('isFeatured', 'asc')
+                ->orderBy('is_featured', 'asc')
                 ->orderBy('id', 'desc')
                 ->select('news.*', 'categories.name_en as catname_en', 'categories.name_bn as catname_bn', 'tags.name_en as tagname_en', 'tags.name_bn as tagname_bn')
                 ->get();
@@ -97,7 +97,7 @@ class PublicController extends Controller
                 ->join('tags', 'tags.id', '=', 'news_tags.tag_id')
                 ->where('categories.name_en', $name)
                 ->where('unique_id', $id)
-                ->orderBy('isFeatured', 'asc')
+                ->orderBy('is_featured', 'asc')
                 ->select('news.*', 'categories.name_en as catname_en', 'categories.name_bn as catname_bn', 'tags.name_en as tagname_en', 'tags.name_bn as tagname_bn')
                 ->get();
 
