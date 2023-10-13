@@ -3,11 +3,12 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Brand;
+use App\Models\News;
+use App\Models\Category;
 
 class NewsFactory extends Factory
 {
-    protected $model = Brand::class;
+    protected $model = News::class;
     /**
      * Define the model's default state.
      *
@@ -16,17 +17,15 @@ class NewsFactory extends Factory
     public function definition()
     {
         $categories = Category::where('status', 1)->pluck('id')->toArray();
-        $tags = Tag::where('status', 1)->pluck('id')->toArray();
 
         return [
             'unique_id' => $this->faker->randomDigit,
             'title' => $this->faker->sentence,
-            'description' => $this->faker->words(100),
+            'description' => $this->faker->paragraph(5),
             'author' => 'Desk Report',
             'is_published' => $this->faker->numberBetween($min=0, $max=1),
             'is_featured' => $this->faker->numberBetween($min=0, $max=1),
-            'category_id' => json_encode(["0" => $this->faker->randomElement($categories)]),
-            'tag_id' => json_encode(["0" => $this->faker->randomElement($tags)]),
+            'category_id' => $this->faker->randomElement($categories),
             'status' => $this->faker->numberBetween($min=0, $max=1),
             'created_by' => '1',
         ];

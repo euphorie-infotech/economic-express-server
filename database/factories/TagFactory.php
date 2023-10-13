@@ -3,11 +3,11 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Brand;
+use App\Models\Tag;
 
 class TagFactory extends Factory
 {
-    protected $model = Brand::class;
+    protected $model = Tag::class;
     /**
      * Define the model's default state.
      *

@@ -11,17 +11,15 @@ class PublicController extends Controller
     public function getActiveNews()
     {
         try {
-            $data = News::join('categories', 'categories.id', '=', 'news.categoryId')
+            $data = News::join('categories', 'categories.id', '=', 'news.category_id')
                 ->join('news_tags', 'news_tags.newsId', '=', 'news.Id')
                 ->join('tags', 'tags.id', '=', 'news_tags.tagId')
-                ->where('tags.lang', 'en')
-                ->where('categories.lang', 'en')
-                ->where('isPublished', 1)
+                ->where('is_published', 1)
                 ->where('news.status', 1)
-                ->orderBy('categoryId', 'asc')
-                ->orderBy('isFeatured', 'asc')
+                ->orderBy('category_id', 'asc')
+                ->orderBy('is_featured', 'asc')
                 ->orderBy('id', 'desc')
-                ->select('news.*', 'categories.nameen as catNameEn', 'categories.namebn as catNameBn', 'tags.nameen as tagNameEn', 'tags.namebn as tagNameBn')
+                ->select('news.*', 'tags.name_en as tagname_en', 'tags.name_bn as tagname_bn', 'categories.name_en as catname_en', 'categories.name_bn as catname_bn')
                 ->get();
 
             return response()->json([
@@ -45,10 +43,10 @@ class PublicController extends Controller
                 ->join('tags', 'tags.id', '=', 'news_tags.tagId')
                 ->where('isPublished', 1)
                 ->where('news.status', 1)
-                ->where('categories.nameen', $name)
+                ->where('categories.name_en', $name)
                 ->orderBy('isFeatured', 'asc')
                 ->orderBy('id', 'desc')
-                ->select('news.*', 'categories.nameen as catNameEn', 'categories.namebn as catNameBn', 'tags.nameen as tagNameEn', 'tags.namebn as tagNameBn')
+                ->select('news.*', 'categories.name_en as catname_en', 'categories.name_bn as catname_bn', 'tags.name_en as tagname_en', 'tags.name_bn as tagname_bn')
                 ->get();
 
             return response()->json([
@@ -72,10 +70,10 @@ class PublicController extends Controller
                 ->join('tags', 'tags.id', '=', 'news_tags.tagId')
                 ->where('isPublished', 1)
                 ->where('news.status', 1)
-                ->where('tags.nameen', $name)
+                ->where('tags.name_en', $name)
                 ->orderBy('isFeatured', 'asc')
                 ->orderBy('id', 'desc')
-                ->select('news.*', 'categories.nameen as catNameEn', 'categories.namebn as catNameBn', 'tags.nameen as tagNameEn', 'tags.namebn as tagNameBn')
+                ->select('news.*', 'categories.name_en as catname_en', 'categories.name_bn as catname_bn', 'tags.name_en as tagname_en', 'tags.name_bn as tagname_bn')
                 ->get();
 
             return response()->json([
@@ -97,10 +95,10 @@ class PublicController extends Controller
             $data = News::join('categories', 'categories.id', '=', 'news.categoryId')
                 ->join('news_tags', 'news_tags.newsId', '=', 'news.Id')
                 ->join('tags', 'tags.id', '=', 'news_tags.tagId')
-                ->where('categories.nameen', $name)
+                ->where('categories.name_en', $name)
                 ->where('unique_id', $id)
                 ->orderBy('isFeatured', 'asc')
-                ->select('news.*', 'categories.nameen as catNameEn', 'categories.namebn as catNameBn', 'tags.nameen as tagNameEn', 'tags.namebn as tagNameBn')
+                ->select('news.*', 'categories.name_en as catname_en', 'categories.name_bn as catname_bn', 'tags.name_en as tagname_en', 'tags.name_bn as tagname_bn')
                 ->get();
 
             return response()->json([
