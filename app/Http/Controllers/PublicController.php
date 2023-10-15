@@ -35,9 +35,13 @@ class PublicController extends Controller
         }
     }
 
-    public function getActiveNewsByCategory($name)
+    public function getActiveNewsByCategory()
     {
         try {
+            if ($request->has('category')) {
+                $name = $request->input('category');
+            }
+
             $data = News::join('categories', 'categories.id', '=', 'news.category_id')
                 ->join('news_tags', 'news_tags.news_id', '=', 'news.Id')
                 ->join('tags', 'tags.id', '=', 'news_tags.tag_id')
@@ -65,6 +69,10 @@ class PublicController extends Controller
     public function getActiveNewsByTag($name)
     {
         try {
+            if ($request->has('tag')) {
+                $name = $request->input('tag');
+            }
+
             $data = News::join('tags', 'tags.id', '=', 'news.category_id')
                 ->join('news_tags', 'news_tags.news_id', '=', 'news.Id')
                 ->join('tags', 'tags.id', '=', 'news_tags.tag_id')

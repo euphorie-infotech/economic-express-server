@@ -1,0 +1,210 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
+use App\Models\EPaper;
+
+class EPaperController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $allEPaper = EPaper::all();
+        return response()->json([
+            'status' => true,
+            'message' => 'EPaper fetched Successfully',
+            'data' => $allEPaper,
+        ], 200);
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        try {
+            // Validated
+            $validate = Validator::make($request->all(), [
+                'title' => 'required',
+                'description' => 'required',
+                'author' => 'required',
+                'status' => 'required',
+            ]);
+
+            if ($validate->fails()) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Validation error',
+                    'errors' => $validate->errors()
+                ], 401);
+            }
+
+            if ($request->has('image')) {
+                $files = $request->file('image');
+                $page_no = 1;
+                //create folder by date  if not exist
+                $date = date('Y-m-d', strtotime($request->publishDate));
+                $folderPath = 'uploads/epapers/' . $date;
+
+                if (!file_exists($folderPath)) {
+                    mkdir($folderPath, 0777, true);
+                }
+
+                foreach($files as $file){
+                    $destinationPath = $folderPath;
+                    $extension = $file->getClientOriginalExtension(); 
+                    $image_name = $page_no . '_' . Str::random(10) . '.' . $extension;
+                    // Storage::putFileAs(public_path($destinationPath), $image_data, $image_name);
+                    $files->move($destinationPath,$image_name);
+                    
+                    EPaperImages::insertGetId([
+                        'image' => $destinationPath . '/' . $image_name,
+                        'page_no' => $page_no,
+                        'publish_date' => $date,
+                        'created_by'
+                    ]);
+
+                    $page_no++;
+                }
+                
+            }
+
+            // Rest of your code...
+
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    // public function update(Request $request, $id)
+    // {
+    //     $validate = Validator::make($request->all(),
+    //         [
+    //             'title' => 'required',
+    //             'description' => 'required',
+    //             'author' => 'required',
+    //             'status' => 'required',
+    //         ]);
+
+    //     if ($validate->fails()) {
+    //         return response()->json([
+    //             'status' => false,
+    //             'message' => 'validation error',
+    //             'errors' => $validate->errors()
+    //         ], 401);
+    //     }
+
+    //     $img_path = false;
+    //     if ($request->has('image')) {
+    //         $files = $request->file('image');
+    //         // foreach($files as $file){
+    //             $destinationPath = 'uploads/EPaper_image/';
+    //             $extension = $file->getClientOriginalExtension(); 
+    //             $image_name = $EPaperId . '_' . time() . '_' . Str::random(10) . '.' . $extension;
+    //             // Storage::putFileAs(public_path($destinationPath), $image_data, $image_name);
+    //             $files->move($destinationPath,$image_name);
+                
+    //             EPaperImages::insertGetId([
+    //                 'EPaperId' => $id,
+    //                 'location' => $destinationPath . '/' . $image_name,
+    //             ]);
+    //         // }
+            
+    //     }
+
+    //     $data = array(
+    //         'title' => $request->title,
+    //         'description' => $request->description,
+    //         'author' => $request->author,
+    //         'type' => 1,
+    //         'image' => $img_path,
+    //         'isPublished' => $request->isPublished,
+    //         'isFeatured' => $request->isFeatured,
+    //         'status' => $request->status,
+    //         'updatedBy' => $request->updatedBy
+    //     );
+
+    //     try {
+    //         $data = EPaper::where('id', $id)->update($data);
+    //         EPaperTags::findOrFail('EPaperId', $id)->delete();
+
+    //         if ($id) {
+    //             foreach ($request->tags as $tag) {
+    //                 $EPaperId = EPaperTags::insertGetId([
+    //                     'EPaperId' => $id,
+    //                     'tagId' => $tag,
+    //                 ]);
+    //             }
+    //         }
+
+    //         return response()->json(["data" => [
+    //             "success" => true,
+    //             'message' => 'EPaper Updated Successfully',
+    //         ]]);
+    //     } catch (\Throwable $th) {
+    //         return response()->json([
+    //             'status' => false,
+    //             'message' => $th->getMessage()
+    //         ], 500);
+    //     }
+    // }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        EPaper::findOrFail($id)->delete();
+        EPaperTags::findOrFail('EPaperId', $id)->delete();
+        $this->deleteImage($id);
+
+        return response()->json(["data" => [
+            "success" => true
+        ]]);
+    }
+
+    public function deleteImage($id)
+    {
+        try {
+            $data = EPaper::findOrFail($id);
+            \Storage::delete($data->image);
+
+            EPaper::findOrFail('id', $id)->delete();
+
+            return response()->json(["data" => [
+                "success" => true
+            ]]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 500);
+        }
+    }
+}
