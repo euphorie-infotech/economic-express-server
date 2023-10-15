@@ -97,17 +97,16 @@ class PublicController extends Controller
         }
     }
 
-    public function getNewsById($name, $id)
+    public function getNewsById()
     {
         try {
             if ($request->has('id')) {
-                $name = $request->input('id');
+                $id = $request->input('id');
             }
 
             $data = News::join('categories', 'categories.id', '=', 'news.category_id')
                 ->join('news_tags', 'news_tags.news_id', '=', 'news.Id')
                 ->join('tags', 'tags.id', '=', 'news_tags.tag_id')
-                ->where('categories.name_en', $name)
                 ->where('unique_id', $id)
                 ->orderBy('is_featured', 'asc')
                 ->select('news.*', 'categories.name_en as catname_en', 'categories.name_bn as catname_bn', 'tags.name_en as tagname_en', 'tags.name_bn as tagname_bn')
