@@ -100,6 +100,10 @@ class PublicController extends Controller
     public function getNewsById($name, $id)
     {
         try {
+            if ($request->has('id')) {
+                $name = $request->input('id');
+            }
+
             $data = News::join('categories', 'categories.id', '=', 'news.category_id')
                 ->join('news_tags', 'news_tags.news_id', '=', 'news.Id')
                 ->join('tags', 'tags.id', '=', 'news_tags.tag_id')
