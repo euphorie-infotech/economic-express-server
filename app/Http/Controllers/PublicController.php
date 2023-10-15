@@ -111,7 +111,7 @@ class PublicController extends Controller
                 ->where('unique_id', $id)
                 ->orderBy('is_featured', 'asc')
                 ->select('news.*', 'categories.name_en as catname_en', 'categories.name_bn as catname_bn', 'tags.name_en as tagname_en', 'tags.name_bn as tagname_bn')
-                ->get();
+                ->first();
 
             return response()->json([
                 'status' => true,
