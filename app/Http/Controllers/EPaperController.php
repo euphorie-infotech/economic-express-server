@@ -16,7 +16,7 @@ class EPaperController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $allEPaper = EPaper::all();
         return response()->json([

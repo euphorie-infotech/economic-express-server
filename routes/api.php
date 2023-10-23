@@ -43,6 +43,10 @@ Route::group(['middleware'=>['auth:sanctum'],'prefix' => '{admin}'], function ()
     Route::post('/tag', [TagController::class, 'store']);
     Route::put('/tag/update/{id}', [TagController::class, 'update']);
     Route::delete('/tag/{id}', [TagController::class, 'destroy']);
+    //EPaper
+    Route::get('/epaper', [EPaperController::class, 'index']);
+    Route::post('/epaper', [EPaperController::class, 'store']);
+    Route::delete('/epaper', [EPaperController::class, 'destroy']);
     
     
     Route::post('/logout', [UserController::class, 'logout']);
