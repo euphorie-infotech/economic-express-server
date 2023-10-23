@@ -45,6 +45,7 @@ class NewsController extends Controller
                 'title' => 'required',
                 'description' => 'required',
                 'author' => 'required',
+                'slug' => 'required',
                 'status' => 'required',
             ]);
 
@@ -60,10 +61,14 @@ class NewsController extends Controller
                 'unique_id' => substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 15),
                 'title' => $request->title,
                 'description' => $request->description,
-                'author' => $request->author,
-                'isPublished' => $request->isPublished,
-                'isFeatured' => $request->isFeatured,
                 'language' => $request->language,
+                'publish_date' => date('Y-m-d',strtotime($request->publishDate)),
+                'slug' => date('Ymd', strtotime($request->publishDate)) . '-' . Str::slug($request->title, '-'),
+                'author' => $request->author,
+                'type' => 1,
+                'image' => $img_path,
+                'is_published' => $request->isPublished,
+                'is_featured' => $request->isFeatured,
                 'status' => $request->status,
                 'createdBy' => $request->createdBy,
             ]);
@@ -141,13 +146,16 @@ class NewsController extends Controller
         $data = array(
             'title' => $request->title,
             'description' => $request->description,
+            'language' => $request->language,
+            'publish_date' => date('Y-m-d',strtotime($request->publishDate)),
+            'slug' => date('Ymd', strtotime($request->publishDate)) . '-' . Str::slug($request->title, '-'),
             'author' => $request->author,
             'type' => 1,
             'image' => $img_path,
-            'isPublished' => $request->isPublished,
-            'isFeatured' => $request->isFeatured,
+            'is_published' => $request->isPublished,
+            'is_featured' => $request->isFeatured,
             'status' => $request->status,
-            'updatedBy' => $request->updatedBy
+            'updated_by' => $request->updatedBy
         );
 
         try {

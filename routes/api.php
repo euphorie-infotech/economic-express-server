@@ -48,8 +48,8 @@ Route::group(['middleware'=>['auth:sanctum'],'prefix' => '{admin}'], function ()
     Route::post('/logout', [UserController::class, 'logout']);
 });
 
-
 Route::get('/', [PublicController::class, 'getActiveNews']);
 Route::get('/{categoryName}', [PublicController::class, 'getActiveNewsByCategory']);
 Route::get('/{tagName}', [PublicController::class, 'getActiveNewsByTag']);
-Route::get('/{categoryName}/{id}', [PublicController::class, 'getNewsById']);
+Route::get('/{slug}', [PublicController::class, 'getNewsBySlug']);
+Route::get('/epaper', [PublicController::class, 'viewEPaper']);

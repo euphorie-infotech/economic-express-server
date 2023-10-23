@@ -73,7 +73,7 @@ class EPaperController extends Controller
                     EPaperImages::insertGetId([
                         'image' => $destinationPath . '/' . $image_name,
                         'page_no' => $page_no,
-                        'publish_date' => $date,
+                        'publish_date' => date('Y-m-d',strtotime($date)),
                         'created_by'
                     ]);
 
@@ -92,85 +92,7 @@ class EPaperController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    // public function update(Request $request, $id)
-    // {
-    //     $validate = Validator::make($request->all(),
-    //         [
-    //             'title' => 'required',
-    //             'description' => 'required',
-    //             'author' => 'required',
-    //             'status' => 'required',
-    //         ]);
-
-    //     if ($validate->fails()) {
-    //         return response()->json([
-    //             'status' => false,
-    //             'message' => 'validation error',
-    //             'errors' => $validate->errors()
-    //         ], 401);
-    //     }
-
-    //     $img_path = false;
-    //     if ($request->has('image')) {
-    //         $files = $request->file('image');
-    //         // foreach($files as $file){
-    //             $destinationPath = 'uploads/EPaper_image/';
-    //             $extension = $file->getClientOriginalExtension(); 
-    //             $image_name = $EPaperId . '_' . time() . '_' . Str::random(10) . '.' . $extension;
-    //             // Storage::putFileAs(public_path($destinationPath), $image_data, $image_name);
-    //             $files->move($destinationPath,$image_name);
-                
-    //             EPaperImages::insertGetId([
-    //                 'EPaperId' => $id,
-    //                 'location' => $destinationPath . '/' . $image_name,
-    //             ]);
-    //         // }
-            
-    //     }
-
-    //     $data = array(
-    //         'title' => $request->title,
-    //         'description' => $request->description,
-    //         'author' => $request->author,
-    //         'type' => 1,
-    //         'image' => $img_path,
-    //         'isPublished' => $request->isPublished,
-    //         'isFeatured' => $request->isFeatured,
-    //         'status' => $request->status,
-    //         'updatedBy' => $request->updatedBy
-    //     );
-
-    //     try {
-    //         $data = EPaper::where('id', $id)->update($data);
-    //         EPaperTags::findOrFail('EPaperId', $id)->delete();
-
-    //         if ($id) {
-    //             foreach ($request->tags as $tag) {
-    //                 $EPaperId = EPaperTags::insertGetId([
-    //                     'EPaperId' => $id,
-    //                     'tagId' => $tag,
-    //                 ]);
-    //             }
-    //         }
-
-    //         return response()->json(["data" => [
-    //             "success" => true,
-    //             'message' => 'EPaper Updated Successfully',
-    //         ]]);
-    //     } catch (\Throwable $th) {
-    //         return response()->json([
-    //             'status' => false,
-    //             'message' => $th->getMessage()
-    //         ], 500);
-    //     }
-    // }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -178,25 +100,18 @@ class EPaperController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        EPaper::findOrFail($id)->delete();
-        EPaperTags::findOrFail('EPaperId', $id)->delete();
-        $this->deleteImage($id);
 
-        return response()->json(["data" => [
-            "success" => true
-        ]]);
-    }
-
-    public function deleteImage($id)
+    public function destroy(Request $request)
     {
         try {
-            $data = EPaper::findOrFail($id);
-            \Storage::delete($data->image);
-
-            EPaper::findOrFail('id', $id)->delete();
-
+            $date = date('Y-m-d', strtotime($request->input('date')));
+            $results = EPaper::where('publish_date', $date)->get();
+            
+            foreach($results as $result)
+            {
+                \Storage::delete($result->image);
+                EPaper::findOrFail('id', $result->id)->delete();
+            }
             return response()->json(["data" => [
                 "success" => true
             ]]);

@@ -13,11 +13,13 @@ class News extends Model
         'unique_id',
         'title',
         'description',
+        'slug',
         'author',
-        'isPublished',
-        'isFeatured',
-        'categoryId',
-        'createdBy',
-        'updatedBy'
+        'language',
+        'is_published',
+        'is_featured',
+        'category_id',
+        'created_by',
+        'updated_by'
     ];
 }

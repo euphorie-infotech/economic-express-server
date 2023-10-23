@@ -1,0 +1,9 @@
+# Ignore log files
+/storage/logs/*.log
+
+# Ignore build artifacts
+/public/build/
+
+# Ignore sensitive configuration files
+/config/.env
+/vendor/

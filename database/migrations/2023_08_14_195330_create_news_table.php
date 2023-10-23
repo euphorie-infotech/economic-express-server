@@ -17,9 +17,12 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->char('unique_id', 15);
             $table->string('title');
+            $table->string('slug');
             $table->longText('description');
             $table->string('author');
+            $table->string('language');
             $table->integer('is_published');
+            $table->date('publish_date');
             $table->integer('is_featured');
             $table->integer('category_id');
             $table->integer('tag_id');

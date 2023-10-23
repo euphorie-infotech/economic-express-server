@@ -83,4 +83,81 @@ class PublicController extends Controller
         }
     }
 
+    //get news details by slug
+    public function getNewsBySlug($slug)
+    {
+        try {
+            $data['detailedNews'] = News::where('slug', $slug)
+                ->where('status', 1)->where('is_published', 1)->first();
+            // get similar news by category
+            $data['similarNews'] = News::where('category_id', $data['detailedNews']->category_id)
+                ->where('status', 1)
+                ->where('is_published', 1)
+                ->where('unique_id', '!=', $data['detailedNews']->unique_id)
+                ->select('unique_id','slug','title')
+                ->limit(10)->get();
+            return response()->json([
+                'status' => true,
+                'data' => $data,
+            ], 200);
+        } catch(\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 500);
+        }
+    }
+
+    //get 10 featured news
+    public function getFeaturedNews()
+    {
+        try{
+            $data = News::where('is_featured', 1)
+            ->where('status', 1)
+            ->where('is_published', 1)
+            ->orderBy('id', 'desc')
+            ->limit(10)-get();
+
+            return response()->json([
+                'status' => true,
+                'data' => $data,
+            ], 200);
+        } catch(\Throwable $th) {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 500);
+        }
+    }
+
+    //view epaper
+    public function viewEPaper(Request $request)
+    {
+        try
+        {
+            $date = date('Y-m-d', strtotime($request->input('date')));
+            $data = EPaper::orderBy('page_no', 'asc')
+                ->where('publish_date', $date)
+                ->where('is_published', 1)
+                ->where('status', 1)
+                ->pagination(1);
+            return response()->json([
+                'status' => true,
+                'data' => $data,
+                'total' => $data->total(),
+                'count' => $data->count(),
+                'per_page' => $data->perPage(),
+                'current_page' => $data->currentPage(),
+                'total_pages' => $data->lastPage(),
+            ], 200);
+        }
+        catch(Throwable $th)
+        {
+            return response()->json([
+                'status' => false,
+                'message' => $th->getMessage()
+            ], 404);
+        }
+    }
+
 }
