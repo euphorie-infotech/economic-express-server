@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\PublicResource;
 use App\Models\News;
+use App\Models\EPaper;
 use Illuminate\Http\Request;
 use \stdClass;
 
