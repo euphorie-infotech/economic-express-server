@@ -48,12 +48,12 @@ Route::group(['middleware'=>['auth:sanctum'],'prefix' => '{admin}'], function ()
     Route::post('/epaper', [EPaperController::class, 'store']);
     Route::delete('/epaper', [EPaperController::class, 'destroy']);
     
-    
     Route::post('/logout', [UserController::class, 'logout']);
 });
 
-Route::get('/', [PublicController::class, 'getActiveNews']);
-Route::get('/{categoryName}', [PublicController::class, 'getActiveNewsByCategory']);
-Route::get('/{tagName}', [PublicController::class, 'getActiveNewsByTag']);
-Route::get('/{slug}', [PublicController::class, 'getNewsBySlug']);
+Route::get('/slug', [PublicController::class, 'getNewsBySlug']);
 Route::get('/epaper', [PublicController::class, 'viewEPaper']);
+Route::get('/', [PublicController::class, 'getActiveNews']);
+// Route::get('/{categoryName}', [PublicController::class, 'getActiveNewsByCategory']);
+// Route::get('/{tagName}', [PublicController::class, 'getActiveNewsByTag']);
+
