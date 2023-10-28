@@ -84,18 +84,22 @@ class PublicController extends Controller
     }
 
     //get news details by slug
-    public function getNewsBySlug($slug)
+    public function getNewsBySlug(Request $request)
     {
         try {
-            $data['detailedNews'] = News::where('slug', $slug)
+            $slug = $request->input('slug');
+            $data['detailedNews'] = News::where('slug', ltrim($slug))
                 ->where('status', 1)->where('is_published', 1)->first();
             // get similar news by category
-            $data['similarNews'] = News::where('category_id', $data['detailedNews']->category_id)
-                ->where('status', 1)
-                ->where('is_published', 1)
-                ->where('unique_id', '!=', $data['detailedNews']->unique_id)
-                ->select('unique_id','slug','title')
-                ->limit(10)->get();
+            if(!empty($data['detailedNews']->category_id)) {
+                $data['similarNews'] = News::where('category_id', $data['detailedNews']->category_id)
+                    ->where('status', 1)
+                    ->where('is_published', 1)
+                    ->where('unique_id', '!=', $data['detailedNews']->unique_id)
+                    ->select('unique_id','slug','title')
+                    ->limit(10)->get();
+                
+            }
             return response()->json([
                 'status' => true,
                 'data' => $data,
