@@ -38,8 +38,10 @@ class EPaperController extends Controller
         try {
             // Validated
             $validate = Validator::make($request->all(), [
-                'images' => 'required',
-                'publishDate' => 'required',
+                'title' => 'required',
+                'description' => 'required',
+                'author' => 'required',
+                'status' => 'required',
             ]);
 
             if ($validate->fails()) {
@@ -50,8 +52,8 @@ class EPaperController extends Controller
                 ], 401);
             }
 
-            if ($request->has('images')) {
-                $files = $request->file('images');
+            if ($request->has('image')) {
+                $files = $request->file('image');
                 $page_no = 1;
                 //create folder by date  if not exist
                 $date = date('Y-m-d', strtotime($request->publishDate));

@@ -144,8 +144,8 @@ class PublicController extends Controller
             $data = EPaper::orderBy('page_no', 'asc')
                 ->where('publish_date', $date)
                 ->where('is_published', 1)
-                ->where('status', 1)
-                ->pagination(1);
+                ->paginate(1);
+                
             return response()->json([
                 'status' => true,
                 'data' => $data,
